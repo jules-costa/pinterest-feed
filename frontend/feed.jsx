@@ -11,7 +11,7 @@ export default class Feed extends React.Component {
     return(
       <div>
         {items.map((item, i) => (
-          <FeedItem item={item} />
+          <FeedItem key={item.id} item={item} />
         ))}
       </div>
     );
