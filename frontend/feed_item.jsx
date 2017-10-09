@@ -11,7 +11,7 @@ export default class FeedItem extends React.Component {
       <div className="item">
         <a href={item.link}>
           <img src={item.image}></img>
-        </a> 
+        </a>
         <h5>{item.description}</h5>
       </div>
     );

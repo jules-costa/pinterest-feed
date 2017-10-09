@@ -1,5 +1,6 @@
 import React from 'react';
 import Feed from './feed';
+import { fetchItems } from './util/api_util';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -7,21 +8,14 @@ export default class App extends React.Component {
     this.state = {
       items: []
     };
-    this.fetchItems = this.fetchItems.bind(this);
     this.updateState = this.updateState.bind(this);
   }
 
   componentDidMount() {
-    this.fetchItems()
-    .then(items => this.setState({items: Object.values(items)}));
-  }
-
-  fetchItems(num) {
-    return (
-      $.ajax({
-        method: 'GET',
-        url: '/pins',
-        data: {num}
+    fetchItems()
+    .then(items =>
+      this.setState({
+        items: Object.values(items)
       })
     );
   }
@@ -35,7 +29,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <Feed items={this.state.items} fetchItems={this.fetchItems} updateState={this.updateState} />
+      <Feed items={this.state.items} updateState={this.updateState} />
     );
   }
 }

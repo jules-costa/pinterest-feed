@@ -13,6 +13,8 @@ h5 {
   color: #555;
   font-size: 14px;
   font-weight: 700;
+  margin: 0;
+  padding: 7px 6px 4px 6px;
 }
 
 .masonry {
@@ -39,6 +41,11 @@ h5 {
 
 .item:hover {
   background-color: #eee;
+  cursor: zoom-in;
+}
+
+a:hover {
+  cursor: zoom-in;
 }
 
 @media only screen and (min-width: 400px) {

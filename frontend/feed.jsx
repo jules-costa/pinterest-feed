@@ -1,5 +1,6 @@
 import React from 'react';
 import FeedItem from './feed_item';
+import { fetchItems } from './util/api_util';
 
 export default class Feed extends React.Component {
   constructor(props) {
@@ -19,8 +20,8 @@ export default class Feed extends React.Component {
     if (
       (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 500)
     ) {
-      this.props.fetchItems(20)
-      .then(items => setTimeout(this.props.updateState(items), 3000));
+      fetchItems(20)
+      .then(items => this.props.updateState(items));
     }
   }
 
