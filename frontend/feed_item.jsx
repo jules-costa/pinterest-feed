@@ -8,7 +8,11 @@ export default class FeedItem extends React.Component {
   render() {
     const { item } = this.props;
     return (
-      <h6>{item.description}</h6>
+      <div className="item">
+        <h3>{item.title}</h3>
+        <h5>{item.description}</h5>
+        <img src={item.small}></img>
+      </div>
     );
   }
 }

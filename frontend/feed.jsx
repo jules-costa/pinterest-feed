@@ -9,7 +9,7 @@ export default class Feed extends React.Component {
   render () {
     const { items } = this.props;
     return(
-      <div>
+      <div className="masonry">
         {items.map((item, i) => (
           <FeedItem key={item.id} item={item} />
         ))}
