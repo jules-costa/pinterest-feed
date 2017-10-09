@@ -16,7 +16,6 @@ export default class Feed extends React.Component {
   }
 
   onScroll() {
-    // console.log(this.props);
     if (
       (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 500)
     ) {
@@ -29,7 +28,7 @@ export default class Feed extends React.Component {
     return(
       <div className="masonry">
         {items.map((item, i) => (
-          <FeedItem key={item.id} item={item} />
+          <FeedItem key={i} item={item} />
         ))}
       </div>
     );

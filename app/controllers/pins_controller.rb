@@ -1,11 +1,10 @@
 class PinsController < ApplicationController
   def index
-      @pins = Pin.all
+    @pins = Pin.all
   end
 
   def more
-    # debugger
-    @pins = Pin.all.sample(15)
+    @pins = Pin.all.sample(3)
     render :index
   end
 end

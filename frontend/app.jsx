@@ -23,7 +23,11 @@ export default class App extends React.Component {
   fetchMoreItems() {
     fetch('/more')
     .then(resp => resp.json())
-    .then(json => this.setState({items: Object.values(json)}))
+    .then(json => {
+      let items = this.state.items.concat(Object.values(json));
+      console.log(items);
+      this.setState({items: items});
+    })
     .catch(err => console.log('parsing failed', err));
   }
 
