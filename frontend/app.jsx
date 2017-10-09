@@ -10,19 +10,26 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/pins').then((resp) => {
-      return resp.json();
-    }).then((json) => {
-      const items = json;
-      this.setState({items: Object.values(items)});
-    }).catch((err) => {
-      console.log('parsing failed', err);
-    });
+    this.fetchAllItems();
+  }
+
+  fetchAllItems() {
+    fetch('/pins')
+    .then(resp => resp.json())
+    .then(json => this.setState({items: Object.values(json)}))
+    .catch(err => console.log('parsing failed', err));
+  }
+
+  fetchMoreItems() {
+    fetch('/more')
+    .then(resp => resp.json())
+    .then(json => this.setState({items: Object.values(json)}))
+    .catch(err => console.log('parsing failed', err));
   }
 
   render() {
     return (
-      <Feed items={this.state.items} />
+      <Feed items={this.state.items} fetchMoreItems={this.fetchMoreItems.bind(this)} />
     );
   }
 }

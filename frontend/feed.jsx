@@ -1,10 +1,10 @@
 import React from 'react';
 import FeedItem from './feed_item';
-import InfiniteScroll from 'infinite-scroll';
 
 export default class Feed extends React.Component {
   constructor(props) {
     super(props);
+    this.onScroll = this.onScroll.bind(this);
   }
 
   componentDidMount() {
@@ -16,11 +16,11 @@ export default class Feed extends React.Component {
   }
 
   onScroll() {
+    // console.log(this.props);
     if (
       (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 500)
-      && this.props.list.length
     ) {
-      this.props.onPaginatedSearch();
+      this.props.fetchMoreItems();
     }
   }
 
