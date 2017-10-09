@@ -14,6 +14,11 @@ To view my project, ensure Postgres is running, run:
 
 and navigate to localhost:3000
 
+To run a couple of tests I wrote using Jest and Enzyme, run
+
+`npm test`
+
+
 ### Process
 
 I used Rails 5 with a Postgres database and React on the front end to design a modular, reusable feed of Pin objects.
@@ -40,8 +45,7 @@ def index
   end
 end
 ```
-I implemented setTimeout to make scrolling feel more natural for the user.
 
 ### Future Goals
 
-Implementing a spinning loader to improve the UX for infinite scrolling, as well as building a modular React modal to view a single item when a user clicks on it. Testing components with Jest and Enzyme.
+Implementing a spinning loader to improve the UX for infinite scrolling, as well as building a modular React modal to view a single item when a user clicks on it. Build out unit tests with Jest and Enzyme.
