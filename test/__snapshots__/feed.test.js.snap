@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match its snapshot with items 1`] = `
+<div
+  className="masonry"
+>
+  <div
+    className="item"
+  >
+    <a
+      href={[Function]}
+    >
+      <img
+        src={undefined}
+      />
+    </a>
+    <h5 />
+  </div>
+  <div
+    className="item"
+  >
+    <a
+      href={[Function]}
+    >
+      <img
+        src={undefined}
+      />
+    </a>
+    <h5 />
+  </div>
+  <div
+    className="item"
+  >
+    <a
+      href={[Function]}
+    >
+      <img
+        src={undefined}
+      />
+    </a>
+    <h5 />
+  </div>
+</div>
+`;
+
+exports[`should render an item  1`] = `
+<div
+  className="masonry"
+/>
+`;
