@@ -17,7 +17,9 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
     "webpack": "webpack"
   },
   "repository": {
@@ -30,5 +32,17 @@
   "bugs": {
     "url": "https://github.com/jules-costa/pinterest-feed/issues"
   },
-  "homepage": "https://github.com/jules-costa/pinterest-feed#readme"
+  "homepage": "https://github.com/jules-costa/pinterest-feed#readme",
+  "devDependencies": {
+    "babel-jest": "^21.2.0",
+    "enzyme": "^3.1.0",
+    "enzyme-adapter-react-16": "^1.0.1",
+    "enzyme-to-json": "^3.1.2",
+    "jest": "^21.2.1",
+    "react-test-renderer": "^16.0.0"
+  },
+  "jest": {
+    "setupFiles": ["./test/jestsetup.js"],
+    "snapshotSerializers": ["enzyme-to-json/serializer"]
+  }
 }
