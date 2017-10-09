@@ -7,3 +7,5 @@ I used Rails 5 with a Postgres database and React on the front end to design a m
 ActiveRecord provides a convenient [json datatype](http://edgeguides.rubyonrails.org/active_record_postgresql.html#json-and-jsonb) to store all pin data as JSON under the key 'payLoad'. I decided this was the fastest and most straightforward way to parse and store the provided json data. In reality, the schema would be normalized and pins would hold foreign keys corresponding to the pinner, comments, board, etc.
 
 I'm using `fetch` to retrieve all pins when the Root component mounts, and storing them as state. The pins are then passed as props to a Feed component, which maps over them and generates FeedItem components, each receiving a single pin as props.
+
+Pinterest is known for its visually engaging and responsive masonry layout. I looked into using (Masonry library)[https://masonry.desandro.com/], CSS3 grid or Bootstrap, but they all seemed too robust for the sake of this project. I used pure CSS to achieve the masonry effect instead.
