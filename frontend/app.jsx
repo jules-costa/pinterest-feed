@@ -10,30 +10,41 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchAllItems();
+    this.fetchItems()
+    .then(items => this.setState({items: Object.values(items)}));
   }
 
-  fetchAllItems() {
-    fetch('/pins')
-    .then(resp => resp.json())
-    .then(json => this.setState({items: Object.values(json)}))
-    .catch(err => console.log('parsing failed', err));
+  fetchItems(num) {
+    return (
+      $.ajax({
+        method: 'GET',
+        url: '/pins',
+        data: {num}
+      })
+    );
   }
 
-  fetchMoreItems() {
-    fetch('/more')
-    .then(resp => resp.json())
-    .then(json => {
-      let items = this.state.items.concat(Object.values(json));
-      console.log(items);
-      this.setState({items: items});
-    })
-    .catch(err => console.log('parsing failed', err));
-  }
+  // fetchAllItems() {
+  //   fetch('/pins')
+  //   .then(resp => resp.json())
+  //   .then(json => this.setState({items: Object.values(json)}))
+  //   .catch(err => console.log('parsing failed', err));
+  // }
+  //
+  // fetchMoreItems() {
+  //   fetch('/more')
+  //   .then(resp => resp.json())
+  //   .then(json => {
+  //     let items = this.state.items.concat(Object.values(json));
+  //     this.setState({items: items});
+  //   })
+  //   .catch(err => console.log('parsing failed', err));
+  // }
 
   render() {
+    // console.log("here");
     return (
-      <Feed items={this.state.items} fetchMoreItems={this.fetchMoreItems.bind(this)} />
+      <Feed items={this.state.items} fetchItems={this.fetchItems.bind(this)} />
     );
   }
 }

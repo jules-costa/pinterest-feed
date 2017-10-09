@@ -19,11 +19,12 @@ export default class Feed extends React.Component {
     if (
       (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 500)
     ) {
-      this.props.fetchMoreItems();
+      this.props.fetchItems(10);
     }
   }
 
   render () {
+    console.log(this.props.items);
     const { items } = this.props;
     return(
       <div className="masonry">
