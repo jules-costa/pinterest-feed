@@ -9,5 +9,3 @@ ActiveRecord provides a convenient [json datatype](http://edgeguides.rubyonrails
 I'm using `fetch` to retrieve all pins when the Root component mounts, and storing them as state. The pins are then passed as props to a Feed component, which maps over them and generates FeedItem components, each receiving a single pin as props.
 
 Pinterest is known for its visually engaging and responsive masonry layout. I looked into using (Masonry library)[https://masonry.desandro.com/], CSS3 grid or Bootstrap, but they all seemed too robust for the sake of this project. I used pure CSS to achieve the masonry effect instead, following (this)[http://w3bits.com/css-masonry/] helpful guide.
-
-I used the (Infinite Scroll)[https://infinite-scroll.com/] package for endless scrolling.

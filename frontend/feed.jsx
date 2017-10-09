@@ -8,15 +8,20 @@ export default class Feed extends React.Component {
   }
 
   componentDidMount() {
-    let element = document.querySelector('.masonry');
-    let infScroll = new InfiniteScroll(element, {
-      path: function() {
-        let pageNumber = ( this.loadCount + 1 ) * 10;
-        return '/pins';
-      },
-      append: '.item',
-      history: false,
-    });
+    window.addEventListener('scroll', this.onScroll, false);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll, false);
+  }
+
+  onScroll() {
+    if (
+      (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 500)
+      && this.props.list.length
+    ) {
+      this.props.onPaginatedSearch();
+    }
   }
 
   render () {
