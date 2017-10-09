@@ -19,8 +19,8 @@ export default class Feed extends React.Component {
     if (
       (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 500)
     ) {
-      this.props.fetchItems(5)
-      .then(items => this.props.updateState(items));
+      this.props.fetchItems(20)
+      .then(items => setTimeout(this.props.updateState(items), 3000));
     }
   }
 

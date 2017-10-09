@@ -7,6 +7,8 @@ export default class App extends React.Component {
     this.state = {
       items: []
     };
+    this.fetchItems = this.fetchItems.bind(this);
+    this.updateState = this.updateState.bind(this);
   }
 
   componentDidMount() {
@@ -25,16 +27,15 @@ export default class App extends React.Component {
   }
 
   updateState(items) {
-    let keepers = this.state.items;
     let newItems = Object.values(items);
     this.setState({
-      items: keepers.concat(newItems)
+      items: this.state.items.concat(newItems)
     });
   }
 
   render() {
     return (
-      <Feed items={this.state.items} fetchItems={this.fetchItems.bind(this)} updateState={this.updateState.bind(this)} />
+      <Feed items={this.state.items} fetchItems={this.fetchItems} updateState={this.updateState} />
     );
   }
 }
