@@ -44,4 +44,4 @@ I implemented setTimeout to make scrolling feel more natural for the user.
 
 ### Future Goals
 
-Implementing a spinning loader to improve the UX for infinite scrolling, as well as building a modular React modal to view a single item when a user clicks on it.
+Implementing a spinning loader to improve the UX for infinite scrolling, as well as building a modular React modal to view a single item when a user clicks on it. Testing components with Jest and Enzyme.
