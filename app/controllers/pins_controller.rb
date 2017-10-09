@@ -1,14 +1,10 @@
 class PinsController < ApplicationController
   def index
+    # debugger
     if params["num"]
-      @pins = Pin.all.sample(params["num"])
+      @pins = Pin.all.sample(params["num"].to_i)
     else
       @pins = Pin.all
     end
   end
-
-  # def more
-  #   @pins = Pin.all.sample(3)
-  #   render :index
-  # end
 end

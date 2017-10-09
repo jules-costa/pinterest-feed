@@ -24,27 +24,17 @@ export default class App extends React.Component {
     );
   }
 
-  // fetchAllItems() {
-  //   fetch('/pins')
-  //   .then(resp => resp.json())
-  //   .then(json => this.setState({items: Object.values(json)}))
-  //   .catch(err => console.log('parsing failed', err));
-  // }
-  //
-  // fetchMoreItems() {
-  //   fetch('/more')
-  //   .then(resp => resp.json())
-  //   .then(json => {
-  //     let items = this.state.items.concat(Object.values(json));
-  //     this.setState({items: items});
-  //   })
-  //   .catch(err => console.log('parsing failed', err));
-  // }
+  updateState(items) {
+    let keepers = this.state.items;
+    let newItems = Object.values(items);
+    this.setState({
+      items: keepers.concat(newItems)
+    });
+  }
 
   render() {
-    // console.log("here");
     return (
-      <Feed items={this.state.items} fetchItems={this.fetchItems.bind(this)} />
+      <Feed items={this.state.items} fetchItems={this.fetchItems.bind(this)} updateState={this.updateState.bind(this)} />
     );
   }
 }
